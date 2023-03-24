@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 const subscribers = (state = [], action) => {
-    if(action === 'SET_SUBSCRIBERS') {
+    if(action.type === 'SET_SUBSCRIBERS') {
         return action.subscribers;
     }
     return state;
