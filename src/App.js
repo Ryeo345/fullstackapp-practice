@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {fetchSubscribers} from './store';
-import {Routes, Route} from 'react-router-dom';
+import {Routes, Route, Link} from 'react-router-dom';
 import Subscribers from './Subscribers';
+import SubscriberCreate from './SubscriberCreate';
 const App = () => {
     const { subscribers } = useSelector(state => state);
     const dispatch = useDispatch();
@@ -11,9 +12,11 @@ const App = () => {
     }, []);
     return (
         <div>
-            <h1>Subscribers ({ subscribers.length })</h1>
+            <h1><Link to ='/'>Subscribers ({ subscribers.length })</Link></h1>
+            <Link to ='/subscribers/create'>Add a Subscriber</Link>
             <Routes>
                 <Route path = '/' element = { <Subscribers />} />
+                <Route path = '/subscribers/create' element = { <SubscriberCreate />} />
             </Routes>
         </div>
     );

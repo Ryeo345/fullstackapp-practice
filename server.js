@@ -5,12 +5,33 @@ const {syncAndSeed, Subscriber} = require('./db');
 
 
 app.use('/dist', express.static('dist'));
-// app.use(express.json());
+app.use(express.json());
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 app.get('/api/subscribers', async(req, res, next) => {
     try {
         res.send(await Subscriber.findAll());
+    }
+    catch(err) {
+        next(err);
+    }
+})
+
+app.post('/api/subscribers', async(req, res, next) => {
+    try {
+        const newSubscriber = await Subscriber.create(req.body);
+        res.status(201).send(newSubscriber);
+    }
+    catch (err) {
+        next(err);
+    }
+})
+
+app.delete('/api/subscribers/:id', async(req, res, next) => {
+    try {
+        const subscriber = await Subscriber.findByPk(req.params.id);
+        await subscriber.destroy();
+        res.sendStatus(204);
     }
     catch(err) {
         next(err);
