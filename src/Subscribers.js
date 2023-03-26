@@ -13,7 +13,7 @@ const Subscribers = () => {
                 subscribers.map(subscriber => {
                     return (
                         <li key={subscriber.id}>
-                            <Link to = {`/subscribers/${subscriber.id}`}>{subscriber.name}</Link>
+                            <Link to = {`/subscriber/${subscriber.id}`}>{subscriber.name}</Link>
                             <button onClick={() => {
                                 dispatch(removeSubscriber(subscriber))
                             }}>Remove</button>
