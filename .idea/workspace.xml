@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6587cd77-ec34-403e-8230-89d049c8ce2c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/public/NOTES AND BUGS TO FIX" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SubscriberCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SubscriberCreate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Subscribers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Subscribers.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SubscriptionCreate.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SubscriptionCreate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

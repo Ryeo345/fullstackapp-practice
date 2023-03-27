@@ -66,4 +66,16 @@ li:hover {
     color: #fff;
 }
 
+form {
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+form > * {
+    margin: 10px 0;
+}
 
