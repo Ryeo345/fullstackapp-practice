@@ -18,9 +18,16 @@ app.get('/api/subscribers', async(req, res, next) => {
     }
 })
 
-app.get('/api/subscriptions', async(req, res, next) => {
+app.get('/api/subscribers/:id', async(req, res, next) => {
     try {
-        res.send(await Subscription.findAll());
+        const subscriberSubscriptions = await Subscriber.findByPk(req.params.id, {
+            include: [
+                {model: Subscription}
+            ]
+        })
+        if (subscriberSubscriptions) {
+            res.send(subscriberSubscriptions);
+        }
     }
     catch(err) {
         next(err);

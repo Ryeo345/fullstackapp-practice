@@ -36,6 +36,7 @@ const Subscription = conn.define('subscription', {
 })
 
 Subscriber.hasMany(Subscription);
+Subscription.belongsTo(Subscriber);
 const syncAndSeed = async() => {
     await conn.sync({force:true});
     const [Rose, Phil, Thomas] = await Promise.all(

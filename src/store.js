@@ -47,11 +47,11 @@ export const fetchSubscribers = () => {
         dispatch({type: 'SET_SUBSCRIBERS', subscribers: response.data})
     }
 }
-export const fetchSubscriptions = () => {
+export const fetchSubscriptions = (id) => {
     return async(dispatch) => {
-        const response = await axios.get('/api/subscriptions');
+        const response = await axios.get(`/api/subscribers/${id}`);
         console.log(response.data)
-        dispatch({type: 'SET_SUBSCRIPTIONS', subscriptions: response.data})
+        dispatch({type: 'SET_SUBSCRIPTIONS', subscriptions: response.data.subscriptions})
     }
 }
 export const createSubscriber = (subscriber) => {
