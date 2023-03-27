@@ -48,6 +48,17 @@ app.delete('/api/subscribers/:id', async(req, res, next) => {
     }
 })
 
+app.delete('/api/subscriptions/:id', async(req, res, next) => {
+    try {
+        const subscription = await Subscription.findByPk(req.params.id);
+        await subscription.destroy();
+        res.sendStatus(204);
+}
+    catch(err) {
+        next(err);
+    }
+})
+
 app.put('/api/subscribers/:id', async(req, res, next) => {
     try {
         const subscriber = await Subscriber.findByPk(req.params.id);

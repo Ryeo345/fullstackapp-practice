@@ -21,6 +21,7 @@ const App = () => {
                 <Route path = '/subscriber/:id' element = {
                     <div>
                         < SubscriberUpdate />
+                        < hr />
                         < Subscriptions />
                     </div>
                 } />

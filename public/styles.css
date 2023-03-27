@@ -3,8 +3,20 @@ div > a {
     justify-content: space-around;
 }
 
-div ul {
+#list {
     list-style-type: none;
+}
+
+
+#details {
+    display:flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
+
+div div ul li {
+    flex-basis: calc(33.33% - 10px);
+    margin: 5px;
 }
 
 div ul li > * {

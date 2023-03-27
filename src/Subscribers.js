@@ -8,21 +8,23 @@ const Subscribers = () => {
     const {subscribers} = useSelector(state => state);
     const dispatch = useDispatch();
     return (
-        <ul>
-            {
-                subscribers.map(subscriber => {
-                    return (
-                        <li key={subscriber.id}>
-                            <Link to = {`/subscriber/${subscriber.id}`}>{subscriber.name}</Link>
-                            <button onClick={() => {
-                                dispatch(removeSubscriber(subscriber))
-                            }}>Remove</button>
-                            <hr />
-                        </li>
-                    )
-                })
-            }
-        </ul>
+        <div>
+            <ul id="list">
+                {
+                    subscribers.map(subscriber => {
+                        return (
+                            <li key={subscriber.id}>
+                                <Link to = {`/subscriber/${subscriber.id}`}>{subscriber.name}</Link>
+                                <button onClick={() => {
+                                    dispatch(removeSubscriber(subscriber))
+                                }}>Remove</button>
+                                <hr />
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
     );
 }
 export default Subscribers;

@@ -30,6 +30,9 @@ const subscriptions = (state = [], action) => {
     if(action.type === 'SET_SUBSCRIPTIONS') {
         return action.subscriptions;
     }
+    if( action.type ==='REMOVE_SUBSCRIPTION') {
+        return state.filter(subscription => subscription.id !== action.subscription.id)
+    }
     return state;
 }
 
@@ -62,6 +65,13 @@ export const removeSubscriber = (subscriber) => {
     return async(dispatch) => {
         await axios.delete(`/api/subscribers/${subscriber.id}`);
         dispatch({type: 'REMOVE_SUBSCRIBER', subscriber});
+    }
+}
+
+export const removeSubscription = (subscription) => {
+    return async(dispatch) => {
+        await axios.delete(`api/subscriptions/${subscription.id}`);
+        dispatch({type: 'REMOVE_SUBSCRIPTION', subscription});
     }
 }
 

@@ -18,7 +18,6 @@ const SubscriberCreate = () => {
         <form onSubmit = {create}>
             <input placeholder ="Add a Subscriber" value ={name} onChange = {ev => setName(ev.target.value)}/>
             <button>Create</button>
-            {name}
         </form>
     )
 }
