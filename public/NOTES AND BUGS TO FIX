@@ -1,0 +1,19 @@
+/* MAIN PROBLEM
+It was easier to do with one table , but adding the 2nd data model, the querying and gather of the data
+became more difficult.
+
+I wanted to have the form at the bottom of the details page to add another <li> item in the subscriptions
+portion of the details page.
+
+I'm not sure if its an issue with my seeded data for the subscriptions table in the db/index.js, but I had to end up hard
+coding the data on the SubcriptionCreate.js for the data to work
+
+The react doesn't not render after I create a new subscription on the details page
+*/
+
+/* SIDE PROBLEMS
+things still need to be done
+1. add total state to calculate to total expenses for the combined subscriptions
+2. modify the data models so no person can have duplicate subscriptions
+3. fix css
+*/

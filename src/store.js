@@ -33,6 +33,9 @@ const subscriptions = (state = [], action) => {
     if( action.type ==='REMOVE_SUBSCRIPTION') {
         return state.filter(subscription => subscription.id !== action.subscription.id)
     }
+    if(action.type === 'CREATE_SUBSCRIPTION') {
+        return [...state, action.subscriber];
+    }
     return state;
 }
 
@@ -50,14 +53,24 @@ export const fetchSubscribers = () => {
 export const fetchSubscriptions = (id) => {
     return async(dispatch) => {
         const response = await axios.get(`/api/subscribers/${id}`);
-        console.log(response.data)
+        console.log(response.data.subscriptions)
         dispatch({type: 'SET_SUBSCRIPTIONS', subscriptions: response.data.subscriptions})
     }
 }
 export const createSubscriber = (subscriber) => {
     return async(dispatch) => {
+        console.log(subscriber);
         const response = await axios.post('/api/subscribers', subscriber);
+        console.log(response.data);
         dispatch({type: 'CREATE_SUBSCRIBER', subscriber: response.data})
+    }
+}
+export const createSubscription = (subscription) => {
+    return async(dispatch) => {
+        console.log(subscription);
+        const response = await axios.post('/api/subscriptions', subscription);
+        console.log(response.data);
+        dispatch({type: 'CREATE_SUBSCRIPTION', subscription: response.data})
     }
 }
 

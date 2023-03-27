@@ -44,6 +44,17 @@ app.post('/api/subscribers', async(req, res, next) => {
     }
 })
 
+app.post('/api/subscriptions', async(req, res, next) => {
+    try {
+        console.log(req.body);
+        const newSubscription = await Subscription.create(req.body);
+        res.status(201).send(newSubscription);
+    }
+    catch (err) {
+        next(err);
+    }
+})
+
 app.delete('/api/subscribers/:id', async(req, res, next) => {
     try {
         const subscriber = await Subscriber.findByPk(req.params.id);

@@ -18,7 +18,6 @@ const Subscribers = () => {
                                 <button onClick={() => {
                                     dispatch(removeSubscriber(subscriber))
                                 }}>Remove</button>
-                                <hr />
                             </li>
                         )
                     })

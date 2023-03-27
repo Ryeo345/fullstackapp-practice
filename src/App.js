@@ -6,6 +6,7 @@ import Subscribers from './Subscribers';
 import SubscriberCreate from './SubscriberCreate';
 import SubscriberUpdate from "./SubscriberUpdate";
 import Subscriptions from "./Subscriptions";
+import SubscriptionCreate from "./SubscriptionCreate";
 const App = () => {
     const { subscribers } = useSelector(state => state);
     const dispatch = useDispatch();
@@ -15,14 +16,20 @@ const App = () => {
     return (
         <div>
             <h1><Link to ='/'>Subscribers ({ subscribers.length })</Link></h1>
-            <SubscriberCreate />
             <Routes>
-                <Route path = '/' element = { <Subscribers />} />
+                <Route path = '/' element = {
+                    <div>
+                        <SubscriberCreate />
+                        <Subscribers />
+                    </div>
+                    } />
                 <Route path = '/subscriber/:id' element = {
                     <div>
                         < SubscriberUpdate />
                         < hr />
                         < Subscriptions />
+                        < hr />
+                        < SubscriptionCreate />
                     </div>
                 } />
             </Routes>

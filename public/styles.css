@@ -1,24 +1,69 @@
-div > a {
-    display:flex;
-    justify-content: space-around;
+#background {
+    background: url("./financial-management-image.jpg") center no-repeat;
+}
+
+h1 a {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1 a:hover {
+    text-decoration: underline;
+    text-align: center;
 }
 
 #list {
-    list-style-type: none;
+    list-style: none;
 }
 
-
-#details {
+#list li, #details li  {
     display:flex;
-    list-style-type: none;
-    flex-wrap: wrap;
+    justify-content: space-around;
+    text-size:large;
+    align-items: center;
 }
 
-div div ul li {
-    flex-basis: calc(33.33% - 10px);
-    margin: 5px;
+#list li a {
+    color: #333;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
 }
 
-div ul li > * {
-    margin: 2rem;
+#details li button, #list li button {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+
 }
+
+ul {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+li {
+    margin: 10px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: #555;
+    font-size: 16px;
+}
+
+li:hover {
+    background-color: #f1c40f;
+    color: #fff;
+}
+
+

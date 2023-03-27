@@ -11,6 +11,7 @@ const SubscriberCreate = () => {
     const create = async(ev) => {
             ev.preventDefault();
             await dispatch(createSubscriber({name}));
+            setName('');
             navigate('/');
     }
 
