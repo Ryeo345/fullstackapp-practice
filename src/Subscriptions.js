@@ -16,7 +16,7 @@ const Subscriptions = () => {
             {
                 subscriptions.filter(subscription => id === subscription.subscriberId).map(subscription => {
                     return (
-                        <li key={subscription.subscriberId}>
+                        <li key={subscription.id}>
                             {subscription.name} <br />
                             {subscription.price} <br />
                         </li>
