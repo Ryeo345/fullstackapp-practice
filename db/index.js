@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const conn = new Sequelize(process.env.DATABASE_URL || 'postgres://postgres:code@localhost/subscription_logger_db');
-const {UUID, UUIDV4, STRING, ENUM, INTEGER} = Sequelize;
+const {UUID, UUIDV4, STRING, ENUM, DECIMAL} = Sequelize;
 
 
 const Subscriber = conn.define('subscriber', {
@@ -18,11 +18,37 @@ const Subscriber = conn.define('subscriber', {
     }
 })
 
+const Subscription = conn.define('subscription', {
+    name: {
+        type: ENUM('NETFLIX', 'HULU', 'DISNEY+', 'SPOTIFY'),
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    price: {
+        type: DECIMAL,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    }
+})
+
+Subscriber.hasMany(Subscription);
 const syncAndSeed = async() => {
     await conn.sync({force:true});
-    await Promise.all(
-        ['Michael', 'Phil', 'David'].map(name => Subscriber.create({name:name}))
+    const [Rose, Phil, Thomas] = await Promise.all(
+        ['Rose', 'Phil', 'Thomas'].map(name => Subscriber.create({name:name}))
     );
+    await Promise.all([
+        Subscription.create({name:'NETFLIX', price: 15.99, subscriberId:Rose.id}),
+        Subscription.create({name:'NETFLIX', price: 15.99, subscriberId:Phil.id}),
+        Subscription.create({name:'NETFLIX', price: 15.99, subscriberId:Thomas.id}),
+        Subscription.create({name:'HULU', price: 11.99, subscriberId:Thomas.id}),
+        Subscription.create({name:'HULU', price: 11.99, subscriberId:Rose.id}),
+        Subscription.create({name:'DISNEY+', price: 15.99, subscriberId:Thomas.id})
+    ])
 }
 
 module.exports = {

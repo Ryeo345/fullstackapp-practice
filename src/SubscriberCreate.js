@@ -16,7 +16,7 @@ const SubscriberCreate = () => {
 
     return (
         <form onSubmit = {create}>
-            <input placeholder ="enter name" value ={name} onChange = {ev => setName(ev.target.value)}/>
+            <input placeholder ="Add a Subscriber" value ={name} onChange = {ev => setName(ev.target.value)}/>
             <button>Create</button>
             {name}
         </form>

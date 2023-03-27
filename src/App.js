@@ -14,10 +14,9 @@ const App = () => {
     return (
         <div>
             <h1><Link to ='/'>Subscribers ({ subscribers.length })</Link></h1>
-            <Link to ='/subscribers/create'>Add a Subscriber</Link>
+            <SubscriberCreate />
             <Routes>
                 <Route path = '/' element = { <Subscribers />} />
-                <Route path = '/subscribers/create' element = { <SubscriberCreate />} />
                 <Route path = '/subscriber/:id' element = {<SubscriberUpdate />} />
             </Routes>
         </div>
