@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const {syncAndSeed, Subscriber} = require('./db');
+const {syncAndSeed, Subscriber, Subscription} = require('./db');
 
 
 app.use('/dist', express.static('dist'));
@@ -12,6 +12,15 @@ app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 app.get('/api/subscribers', async(req, res, next) => {
     try {
         res.send(await Subscriber.findAll());
+    }
+    catch(err) {
+        next(err);
+    }
+})
+
+app.get('/api/subscriptions', async(req, res, next) => {
+    try {
+        res.send(await Subscription.findAll());
     }
     catch(err) {
         next(err);

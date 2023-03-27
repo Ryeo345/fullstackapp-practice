@@ -26,14 +26,29 @@ const subscribers = (state = [], action) => {
     return state;
 }
 
+const subscriptions = (state = [], action) => {
+    if(action.type === 'SET_SUBSCRIPTIONS') {
+        return action.subscriptions;
+    }
+    return state;
+}
+
 const reducer = combineReducers({
-    subscribers: subscribers
+    subscribers: subscribers,
+    subscriptions: subscriptions
 })
 
 export const fetchSubscribers = () => {
     return async(dispatch) => {
         const response = await axios.get('/api/subscribers');
         dispatch({type: 'SET_SUBSCRIBERS', subscribers: response.data})
+    }
+}
+export const fetchSubscriptions = () => {
+    return async(dispatch) => {
+        const response = await axios.get('/api/subscriptions');
+        console.log(response.data)
+        dispatch({type: 'SET_SUBSCRIPTIONS', subscriptions: response.data})
     }
 }
 export const createSubscriber = (subscriber) => {

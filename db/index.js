@@ -53,5 +53,6 @@ const syncAndSeed = async() => {
 
 module.exports = {
     syncAndSeed,
-    Subscriber
+    Subscriber,
+    Subscription
 };

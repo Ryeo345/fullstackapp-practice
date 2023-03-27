@@ -5,6 +5,7 @@ import {Routes, Route, Link} from 'react-router-dom';
 import Subscribers from './Subscribers';
 import SubscriberCreate from './SubscriberCreate';
 import SubscriberUpdate from "./SubscriberUpdate";
+import Subscriptions from "./Subscriptions";
 const App = () => {
     const { subscribers } = useSelector(state => state);
     const dispatch = useDispatch();
@@ -17,7 +18,12 @@ const App = () => {
             <SubscriberCreate />
             <Routes>
                 <Route path = '/' element = { <Subscribers />} />
-                <Route path = '/subscriber/:id' element = {<SubscriberUpdate />} />
+                <Route path = '/subscriber/:id' element = {
+                    <div>
+                        < SubscriberUpdate />
+                        < Subscriptions />
+                    </div>
+                } />
             </Routes>
         </div>
     );

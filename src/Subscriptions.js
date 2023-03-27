@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {fetchSubscribers, fetchSubscriptions} from "./store";
+import {fetchSubscriptions} from "./store";
 import { useParams, useNavigate} from 'react-router-dom';
 
 const Subscriptions = () => {
@@ -11,9 +11,10 @@ const Subscriptions = () => {
     }, []);
     const { id } = useParams();
     return (
+        // <hr />
         <ul>
             {
-                subscriptions.filter(subscription => id === subscriptions.subscriberId)subscriptions.map(subscription => {
+                subscriptions.filter(subscription => id === subscription.subscriberId).map(subscription => {
                     return (
                         <li key={subscription.subscriberId}>
                             {subscription.name} <br />
